@@ -380,7 +380,7 @@ sflow_set_port_config(bool set)
         return CMD_SUCCESS;
     }
 
-    port_row = port_find((const char *) vty->index);
+    port_row = port_find((const char *)((uintptr_t) vty->index));
     if (port_row == NULL) {
         VLOG_ERR("Null port row, can't [un]set sflow on it.");
         cli_do_config_abort(status_txn);
